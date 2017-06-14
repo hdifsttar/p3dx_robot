@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="pioneer3dx" >
+
+  <!-- Import Rviz colors -->
+  <xacro:include filename="$(find p3dx_robot)/xacro/materials.xacro" />
+
+  <!-- Import robot -->
+  <xacro:include filename="$(find p3dx_robot)/xacro/p3dx/pioneer3dx_body.xacro"/>
+  <xacro:pioneer3dx_body name="chassis" parent="base_link" meshes="package://p3dx_robot/meshes/p3dx"/>
+
+  <!-- Laser 
+  <xacro:include filename="$(find p3dx_robot)/xacro/laser/hokuyo.xacro"/>
+  <xacro:laser name="front_laser" parent="chassis" xyz="0.16 0 0.1" rpy="0 0 0" meshes="package://p3dx_robot/meshes/laser"/>
+  -->
+
+  <!-- GPU Laser
+  <xacro:include filename="$(find p3dx_robot)/xacro/laser/hokuyo_gpu.xacro"/>
+  <xacro:laser_gpu name="front_laser" parent="chassis" xyz="0.16 0 0.1" rpy="0 0 0" meshes="package://gazebo_plugins/test/p3dx_robot/meshes/laser" />
+    -->
+  
+  <!-- Camera 
+  <xacro:include filename="$(find p3dx_robot)/xacro/camera/camera.xacro"/>
+  <xacro:cam name="front_camera" parent="chassis" xyz="0 0 0.5" rpy="0 0 0" />
+  -->
+  
+  <!-- Sonar -->
+  <xacro:include filename="$(find p3dx_robot)/xacro/p3dx/pioneer3dx_sonar.xacro"/>
+  <xacro:pioneer_sonar 
+      name="sonar0" 
+      parent="base_link"
+      ros_topic="sonar0/scan" 
+      update_rate="10" 
+      min_range="0.18" 
+      max_range="5.0" 
+      field_of_view="${1*M_PI/12}" 
+      ray_count="1"
+      robot="r1">
+      <origin xyz="0.068 0 0.209" rpy="0 0 ${1*M_PI/2}"/>
+</xacro:pioneer_sonar>
+
+  <xacro:include filename="$(find p3dx_robot)/xacro/p3dx/pioneer3dx_sonar.xacro"/>
+  <xacro:pioneer_sonar 
+      name="sonar1" 
+      parent="base_link"
+      ros_topic="sonar1/scan" 
+      update_rate="10" 
+      min_range="0.18" 
+      max_range="5.0" 
+      field_of_view="${1*M_PI/12}" 
+      ray_count="1"
+      robot="r1">
+      <origin xyz="0 0 0.209" rpy="0 0 ${5*M_PI/18}"/>
+</xacro:pioneer_sonar>
+
+  <xacro:include filename="$(find p3dx_robot)/xacro/p3dx/pioneer3dx_sonar.xacro"/>
+  <xacro:pioneer_sonar 
+      name="sonar2" 
+      parent="base_link"
+      ros_topic="sonar2/scan" 
+      update_rate="10" 
+      min_range="0.18" 
+      max_range="5.0" 
+      field_of_view="${1*M_PI/12}" 
+      ray_count="1"
+      robot="r1">
+      <origin xyz="0 0 0.209" rpy="0 0 ${1*M_PI/6}"/>
+</xacro:pioneer_sonar>
+
+  <xacro:include filename="$(find p3dx_robot)/xacro/p3dx/pioneer3dx_sonar.xacro"/>
+  <xacro:pioneer_sonar 
+      name="sonar3" 
+      parent="base_link"
+      ros_topic="sonar3/scan" 
+      update_rate="10" 
+      min_range="0.18" 
+      max_range="5.0" 
+      field_of_view="${1*M_PI/12}" 
+      ray_count="1"
+      robot="r1">
+      <origin xyz="0 0 0.209" rpy="0 0 ${1*M_PI/18}"/>
+</xacro:pioneer_sonar>
+
+  <xacro:include filename="$(find p3dx_robot)/xacro/p3dx/pioneer3dx_sonar.xacro"/>
+  <xacro:pioneer_sonar 
+      name="sonar4" 
+      parent="base_link"
+      ros_topic="sonar4/scan" 
+      update_rate="10" 
+      min_range="0.18" 
+      max_range="5.0" 
+      field_of_view="${1*M_PI/12}" 
+      ray_count="1"
+      robot="r1">
+      <origin xyz="0 0 0.209" rpy="0 0 ${-1*M_PI/18}"/>
+</xacro:pioneer_sonar>
+
+  <xacro:include filename="$(find p3dx_robot)/xacro/p3dx/pioneer3dx_sonar.xacro"/>
+  <xacro:pioneer_sonar 
+      name="sonar5" 
+      parent="base_link"
+      ros_topic="sonar5/scan" 
+      update_rate="10" 
+      min_range="0.18" 
+      max_range="5.0" 
+      field_of_view="${1*M_PI/12}" 
+      ray_count="1"
+      robot="r1">
+      <origin xyz="0 0 0.209" rpy="0 0 ${-1*M_PI/6}"/>
+</xacro:pioneer_sonar>
+
+  <xacro:include filename="$(find p3dx_robot)/xacro/p3dx/pioneer3dx_sonar.xacro"/>
+  <xacro:pioneer_sonar 
+      name="sonar6" 
+      parent="base_link"
+      ros_topic="sonar6/scan" 
+      update_rate="10" 
+      min_range="0.18" 
+      max_range="5.0" 
+      field_of_view="${1*M_PI/12}" 
+      ray_count="1"
+      robot="r1">
+      <origin xyz="0 0 0.209" rpy="0 0 ${-5*M_PI/18}"/>
+</xacro:pioneer_sonar>
+
+  <xacro:include filename="$(find p3dx_robot)/xacro/p3dx/pioneer3dx_sonar.xacro"/>
+  <xacro:pioneer_sonar 
+      name="sonar7" 
+      parent="base_link"
+      ros_topic="sonar7/scan" 
+      update_rate="10" 
+      min_range="0.18" 
+      max_range="5.0" 
+      field_of_view="${1*M_PI/12}" 
+      ray_count="1"
+      robot="r1">
+      <origin xyz="0.068 0 0.209" rpy="0 0 ${-1*M_PI/2}"/>
+  </xacro:pioneer_sonar> 
+</robot>
